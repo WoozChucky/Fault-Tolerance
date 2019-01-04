@@ -39,5 +39,11 @@ export class Block {
         this.hash = hash
     }
 
+    /**
+     *
+     */
+    public IsValidStructure() : boolean {
+        return Block.IsValidStructure(this);
+    }
 
 }
