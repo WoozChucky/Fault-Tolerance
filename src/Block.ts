@@ -17,11 +17,11 @@ export class Block {
             && typeof block.data === 'object';
     }
 
-    public index : number;
-    public timestamp : number;
-    public previousHash : string;
-    public data : object;
-    public hash : string;
+    public readonly index : number;
+    public readonly timestamp : number;
+    public readonly previousHash : string;
+    public readonly data : object;
+    public readonly hash : string;
 
     /**
      *

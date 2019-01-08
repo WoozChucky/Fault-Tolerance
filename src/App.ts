@@ -1,5 +1,8 @@
-import {Network} from "net/Network";
+import {BlockchainManager} from "./Blockchain";
+import {Network} from './net/Network'
 
-const net = new Network();
+const blockchain = new BlockchainManager();
+
+const net = new Network(5050);
 
 net.Serve();
