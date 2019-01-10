@@ -1,4 +1,5 @@
 import WebSocket from 'ws';
+import {IBaseEntity} from "./data/BaseEntity";
 import {Guid} from "./Guid";
 import {Packet} from "./net/Packet";
 import {JSONtoObject} from "./net/Utils";
@@ -6,7 +7,7 @@ import {JSONtoObject} from "./net/Utils";
 export type OnPacketHandler = (packet : Packet, nodeId : Guid) => void;
 export type OnDisconnectionHandler = (nodeId : Guid) => void;
 
-export class Node {
+export class Node implements IBaseEntity<Guid> {
 
     public readonly Id : Guid;
 
@@ -20,7 +21,9 @@ export class Node {
     public Send(message: Packet): any {
         this.Socket.send(JSON.stringify(message),
             (err? : Error) => {
-                console.log(err || 'Sent!');
+                if (err) {
+                    console.log(err);
+                }
             }
         );
     }
